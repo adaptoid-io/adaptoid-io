@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: adaptoid_io_development
+
+test:
+  <<: *default
+  database: adaptoid_io_test
+
+production:
+  <<: *default
+  database: adaptoid_io_production
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

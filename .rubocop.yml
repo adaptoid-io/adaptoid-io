@@ -1,0 +1,77 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - log/**/*
+    - public/**/*
+    - spec/rails_helper.rb
+    - spec/spec_helper.rb
+    - tmp/**/*
+    - vendor/**/*
+    - Guardfile
+    - .gems/**/*
+    - app/models/concerns/*
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: true
+
+Style/HashSyntax:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: true
+
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
+Style/StringLiterals:
+  Enabled: true
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 10
+
+Metrics/AbcSize:
+  Max: 30
+
+Rails/TimeZone:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+  UseHashRocketsWithSymbolValues: true
+
+Style/IndentationWidth:
+  Width: 2
