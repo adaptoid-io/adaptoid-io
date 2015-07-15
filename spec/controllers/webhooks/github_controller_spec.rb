@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Webhooks::GithubController do
+describe Github::WebhooksController do
   describe 'POST #push_event' do
     before { post :push_event, params, format: :json }
 
