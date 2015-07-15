@@ -24,3 +24,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.32.1', require: false
   gem 'dotenv-rails', '~> 2.0.1'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
