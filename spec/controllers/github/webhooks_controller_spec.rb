@@ -5,7 +5,7 @@ describe Github::WebhooksController do
     before { post :push_event, params, format: :json }
 
     context 'with valid parameters' do
-      let(:params) { { event: { foo: 'bar' } } }
+      let(:params) { { ref: 'refs/heads/master' } }
 
       it { expect(response).to have_http_status(:success) }
     end
