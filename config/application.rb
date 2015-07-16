@@ -11,6 +11,7 @@ Bundler.require(*Rails.groups)
 
 module Adaptoid
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join('lib')
     config.generators do |g|
       g.helper false
       g.stylesheets false
