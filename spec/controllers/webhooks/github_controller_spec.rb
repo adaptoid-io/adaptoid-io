@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-describe Github::WebhooksController do
+describe Webhooks::GithubController do
   describe 'POST #push_event' do
-    before { post :push_event, params, format: :json }
+    before { request.headers['HTTP_X_HUB_SIGNATURE'] = 'sha1=b19a37ca2bca00f46af0c9882fd6ddc4382b4bfb' }
+    before { post :push_event, params }
 
     context 'with valid parameters' do
       let(:params) { { ref: 'refs/heads/master' } }

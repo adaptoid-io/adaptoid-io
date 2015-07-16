@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  namespace :github do
-    namespace :webhooks do
+  namespace :webhooks do
+    namespace :github do
       post :push_event
     end
   end
