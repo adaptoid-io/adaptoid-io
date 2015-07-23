@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts, only: :show
+  get 'posts/:slug', to: 'posts#show'
 end
