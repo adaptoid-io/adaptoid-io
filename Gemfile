@@ -9,6 +9,8 @@ gem 'responders', '~> 2.0.0'
 
 gem 'slim-rails', '~> 3.0.1'
 
+gem 'redcarpet', '~> 3.3.2'
+
 gem 'sass-rails', '~> 5.0.1'
 gem 'bootstrap-sass', '~> 3.3.3'
 

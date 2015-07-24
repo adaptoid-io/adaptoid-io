@@ -71,7 +71,6 @@ Rails/TimeZone:
 
 Style/HashSyntax:
   EnforcedStyle: ruby19
-  UseHashRocketsWithSymbolValues: true
 
 Style/IndentationWidth:
   Width: 2
