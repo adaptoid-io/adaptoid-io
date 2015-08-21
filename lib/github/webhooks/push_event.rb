@@ -15,6 +15,18 @@ module Github
         end
       end
 
+      class File
+        attr_reader :name
+
+        def initialize(name)
+          @name = name
+        end
+
+        def slug
+          name.split('.').first
+        end
+      end
+
       class Files
         attr_reader :added, :removed, :modified
 
@@ -56,6 +68,10 @@ module Github
         def files
           documents = %i(added removed modified).each_with_object({}) do |operation, document|
             document[operation] = @payload[:commits].flat_map { |commit| commit[operation] }.compact
+          end
+
+          documents.each do |operation, files|
+            documents[operation] = files.map { |file| File.new(file) }
           end
 
           Files.new(documents[:added], documents[:removed], documents[:modified])
