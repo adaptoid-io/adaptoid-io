@@ -15,28 +15,6 @@ module Github
         end
       end
 
-      class File
-        attr_reader :name
-
-        def initialize(name)
-          @name = name
-        end
-
-        def slug
-          name.split('.').first
-        end
-      end
-
-      class Files
-        attr_reader :added, :removed, :modified
-
-        def initialize(added, removed, modified)
-          @added = added
-          @removed = removed
-          @modified = modified
-        end
-      end
-
       class Parser
         class ParseError < StandardError; end
 
@@ -71,10 +49,10 @@ module Github
           end
 
           documents.each do |operation, files|
-            documents[operation] = files.map { |file| File.new(file) }
+            documents[operation] = files.map { |file| Github::File.new(file) }
           end
 
-          Files.new(documents[:added], documents[:removed], documents[:modified])
+          Github::Files.new(documents[:added], documents[:removed], documents[:modified])
 
         rescue NoMethodError
           raise ParseError.new('Failed to parse files.')
