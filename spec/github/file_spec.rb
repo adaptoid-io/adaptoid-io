@@ -10,4 +10,8 @@ describe Github::File do
   describe '#slug' do
     it { expect(file.slug).to eq('foo') }
   end
+
+  describe '#uri' do
+    it { expect(file.uri.to_s).to eq("#{ENV['POSTS_URL']}/master/foo.md") }
+  end
 end
