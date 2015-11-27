@@ -5,8 +5,6 @@ ruby '2.2.3'
 gem 'rails', '4.2.4'
 gem 'pg', '0.18.1'
 
-gem 'sidekiq', '~> 3.4.2'
-
 gem 'responders', '~> 2.0.0'
 
 gem 'slim-rails', '~> 3.0.1'
