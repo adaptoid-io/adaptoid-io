@@ -1,26 +1,21 @@
-ENV['RAILS_ENV'] ||= 'test'
+ENV["RAILS_ENV"] ||= "test"
 
-require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
-require 'rspec/rails'
-require 'shoulda-matchers'
-require 'database_cleaner'
+require "spec_helper"
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+require File.expand_path("../../config/environment", __FILE__)
 
-ActiveRecord::Migration.check_pending!
+require "rspec/rails"
+
 ActiveRecord::Migration.maintain_test_schema!
-
-include FactoryGirl::Syntax::Methods
-
-class ActiveSupport::TestCase; end
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = true
+end
 
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
   end
 end

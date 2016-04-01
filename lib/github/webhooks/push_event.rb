@@ -29,18 +29,13 @@ module Github
         private
 
         def branch
-          @payload[:ref].split('/').reject { |segment| %w(refs heads).include?(segment) }.join('/')
-
-        rescue NoMethodError
-          raise ParseError.new('Failed to parse branch.')
+          raise ParseError, "Failed to parse reference." unless @payload[:ref]
+          raise ParseError, "Failed to parse commits." unless @payload[:commits]
+          @payload[:ref].split("/").reject { |segment| %w(refs heads).include?(segment) }.join("/")
         end
 
         def authors
-          raise ParseError.new('Failed to parse authors.') unless @payload[:commits]
           @payload[:commits].map { |commit| commit[:author] }
-
-        rescue NoMethodError
-          raise ParseError.new('Failed to parse authors.')
         end
 
         def files
@@ -53,9 +48,6 @@ module Github
           end
 
           Github::Files.new(documents[:added], documents[:removed], documents[:modified])
-
-        rescue NoMethodError
-          raise ParseError.new('Failed to parse files.')
         end
       end
     end

@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :author do
-    name 'Jack Kerouac'
+    name "Jack Kerouac"
 
     trait :invalid do
-      name ''
+      name ""
     end
   end
 end

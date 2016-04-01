@@ -9,7 +9,7 @@ class WebhookController < ApplicationController
   end
 
   def verify_signature
-    signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], request.body.read)
-    render_status(:error) unless Rack::Utils.secure_compare(signature, request.headers['HTTP_X_HUB_SIGNATURE'])
+    signature = "sha1=" + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new("sha1"), ENV["SECRET_TOKEN"], request.body.read)
+    render_status(:error) unless Rack::Utils.secure_compare(signature, request.headers["HTTP_X_HUB_SIGNATURE"])
   end
 end
