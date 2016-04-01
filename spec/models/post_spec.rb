@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.describe Post do
-  it { should have_many(:authors).through(:authorships) }
+  it { is_expected.to have_many(:authorships).inverse_of(:post) }
+  it { is_expected.to have_many(:authors).through(:authorships).inverse_of(:posts) }
 
-  it { should validate_presence_of(:slug) }
+  it { is_expected.to validate_presence_of(:slug) }
 end
