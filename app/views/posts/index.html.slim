@@ -1,0 +1,4 @@
+ol
+- @posts.each do |post|
+  li
+    = link_to post.title, slugged_post_path(post)
