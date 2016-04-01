@@ -1,4 +1,4 @@
-require 'uri'
+require "uri"
 
 module Github
   class File
@@ -9,11 +9,11 @@ module Github
     end
 
     def slug
-      name.split('.').first
+      name.split(".").first
     end
 
     def uri
-      URI.parse([ENV['POSTS_URL'], 'master', name].join('/'))
+      URI.parse([ENV["POSTS_URL"], "master", name].join("/"))
     end
   end
 end
