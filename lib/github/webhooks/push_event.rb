@@ -35,7 +35,9 @@ module Github
         end
 
         def authors
-          @payload[:commits].map { |commit| commit[:author] }
+          @payload[:commits].map do |commit|
+            Github::Author.new(commit[:author][:name], commit[:author][:email], commit[:author][:username])
+          end
         end
 
         def files

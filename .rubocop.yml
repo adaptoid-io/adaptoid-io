@@ -7,6 +7,7 @@ AllCops:
     - tmp/**/*
     - vendor/**/*
     - .gems/**/*
+  TargetRubyVersion: 2.3
 
 Rails:
   Enabled: true
@@ -60,6 +61,9 @@ Style/StringLiterals:
 Style/Alias:
   Enabled: false
 
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
 Metrics/CyclomaticComplexity:
   Enabled: true
 
@@ -72,3 +76,6 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Max: 30
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
