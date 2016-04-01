@@ -57,6 +57,9 @@ Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
 
+Style/Alias:
+  Enabled: false
+
 Metrics/CyclomaticComplexity:
   Enabled: true
 

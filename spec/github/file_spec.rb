@@ -12,6 +12,6 @@ RSpec.describe Github::File do
   end
 
   describe "#uri" do
-    it { expect(file.uri.to_s).to eq("#{ENV["POSTS_URL"]}/master/foo.md") }
+    it { expect(file.uri.to_s).to eq("#{ENV['POSTS_URL']}/master/foo.md") }
   end
 end
