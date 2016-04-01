@@ -1,8 +1,8 @@
 puts "Seeding Authors ..."
 
-Author.create!(name: "Jaryl Sim")
-Author.create!(name: "Ted Johansson")
-Author.create!(name: "Matthew Yeow")
+Author.create!(name: "Jaryl Sim", email: "jaryl@adaptoid.io", username: "j4ryl")
+Author.create!(name: "Ted Johansson", email: "hello@adaptoid.io", username: "dr3nmi")
+Author.create!(name: "Matthew Yeow", email: "matt@adaptoid.io", username: "m4tt")
 
 puts "Seeding Posts ..."
 
