@@ -6,7 +6,7 @@ class CreatePost
   end
 
   def call
-    post = Post.create(slug: @file.slug, body: remote_file_content, publication_date: Time.zone.today)
+    post = Post.create(title: extracted_title, slug: @file.slug, body: remote_file_content, publication_date: Time.zone.today)
 
     ServiceCall.new(post, post.errors)
   end
@@ -14,6 +14,10 @@ class CreatePost
   private
 
   def remote_file_content
-    Net::HTTP.get(@file.uri)
+    _remote_file_content ||= Net::HTTP.get(@file.uri)
+  end
+
+  def extracted_title
+    remote_file_content.match(/^\s*#\s?(.+)/)&.captures&.first || ""
   end
 end
