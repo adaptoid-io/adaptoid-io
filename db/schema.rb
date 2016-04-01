@@ -25,9 +25,12 @@ ActiveRecord::Schema.define(version: 20150723130528) do
   create_table "authorships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "author_id"
-    t.integer  "post_id"
+    t.integer  "author_id",  null: false
+    t.integer  "post_id",    null: false
   end
+
+  add_index "authorships", ["author_id"], name: "index_authorships_on_author_id", using: :btree
+  add_index "authorships", ["post_id"], name: "index_authorships_on_post_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -38,4 +41,6 @@ ActiveRecord::Schema.define(version: 20150723130528) do
     t.string   "slug",             null: false
   end
 
+  add_foreign_key "authorships", "authors"
+  add_foreign_key "authorships", "posts"
 end
