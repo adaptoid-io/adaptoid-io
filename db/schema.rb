@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20150723115106) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "authors", ["email"], name: "index_authors_on_email", unique: true, using: :btree
+  add_index "authors", ["username"], name: "index_authors_on_username", unique: true, using: :btree
+
   create_table "authorships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
